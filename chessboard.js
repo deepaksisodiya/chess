@@ -32,7 +32,7 @@ export default class Chessboard {
    * @returns {boolean} True if the piece type is valid, false otherwise.
    */
   isValidPieceType(pieceType) {
-    const validPieceTypes = ['Pawn', 'King', 'Queen', 'Rook', 'Bishop', 'Horse'];
+    const validPieceTypes = ['Pawn', 'King', 'Queen'];
     return validPieceTypes.includes(pieceType);
   }
 
