@@ -17,6 +17,26 @@ class Chessboard {
   }
 
   /**
+   * Validate the position on the chessboard.
+   * @param {number} row The row number.
+   * @param {string} column The column letter.
+   * @returns {boolean} True if the position is valid, false otherwise.
+   */
+  isValidPosition(row, column) {
+    return row >= 1 && row <= 8 && column >= 'A' && column <= 'H';
+  }
+
+  /**
+   * Check if the given piece type is valid.
+   * @param {string} pieceType The type of the chess piece.
+   * @returns {boolean} True if the piece type is valid, false otherwise.
+   */
+  isValidPieceType(pieceType) {
+    const validPieceTypes = ['Pawn', 'King', 'Queen', 'Rook', 'Bishop', 'Horse'];
+    return validPieceTypes.includes(pieceType);
+  }
+
+  /**
    * Calculate possible moves for a pawn given its current position.
    * Pawns can only move one step forward.
    * @param {number} row The current row of the pawn.
@@ -119,6 +139,14 @@ class Chessboard {
     const row = parseInt(position[1]);
     let possibleMoves;
 
+    if (!this.isValidPieceType(pieceType)) {
+      return 'Invalid piece type.'
+    }
+
+    if (!this.isValidPosition(row, column)) {
+      return 'Invalid position.'
+    }
+
     switch (pieceType) {
       case "Pawn":
         possibleMoves = this.getPawnPossibleMoves(row, column);
@@ -148,3 +176,6 @@ console.log('kingPossibleMoves ', kingPossibleMoves);
 
 const queenPossibleMoves = chessboard.getPossibleMoves('Queen', 'E4');
 console.log('queenPossibleMoves ', queenPossibleMoves);
+
+console.log(chessboard.getPossibleMoves('randomType', 'E4'));
+console.log(chessboard.getPossibleMoves('King', 'H9'));
