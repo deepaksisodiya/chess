@@ -1,4 +1,4 @@
-import Chessboard from './chess';
+import Chessboard from './chessboard';
 
 describe('Chessboard', () => {
   let chessboard;

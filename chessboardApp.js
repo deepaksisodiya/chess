@@ -1,5 +1,5 @@
 import readline from 'readline';
-import Chessboard from './chess.js';
+import Chessboard from './chessboard.js';
 
 // Create readline interface
 const rl = readline.createInterface({
