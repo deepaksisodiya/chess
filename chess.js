@@ -140,11 +140,11 @@ export default class Chessboard {
     let possibleMoves;
 
     if (!this.isValidPieceType(pieceType)) {
-      return 'Invalid piece type.'
+      return 'Invalid piece type'
     }
 
     if (!this.isValidPosition(row, column)) {
-      return 'Invalid position.'
+      return 'Invalid position'
     }
 
     switch (pieceType) {

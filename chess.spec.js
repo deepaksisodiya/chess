@@ -47,6 +47,20 @@ describe('Chessboard', () => {
     ]);
   });
 
+  test('getPossibleMoves method should return error for invalid piece type', () => {
+    const invalidPieceType = 'InvalidPiece';
+    const position = 'A1';
+    const possibleMoves = chessboard.getPossibleMoves(invalidPieceType, position);
+    expect(possibleMoves).toBe('Invalid piece type');
+  });
+
+  test('getPossibleMoves method should return error for invalid position', () => {
+    const pieceType = 'Pawn';
+    const invalidPosition = 'Z9';
+    const possibleMoves = chessboard.getPossibleMoves(pieceType, invalidPosition);
+    expect(possibleMoves).toBe('Invalid position');
+  });
+
   test('should return true for valid position', () => {
     expect(chessboard.isValidPosition(1, 'A')).toBe(true);
     expect(chessboard.isValidPosition(8, 'H')).toBe(true);
