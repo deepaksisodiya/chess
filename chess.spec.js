@@ -46,4 +46,24 @@ describe('Chessboard', () => {
       'G6', 'H7'
     ]);
   });
+
+  test('should return true for valid position', () => {
+    expect(chessboard.isValidPosition(1, 'A')).toBe(true);
+    expect(chessboard.isValidPosition(8, 'H')).toBe(true);
+  });
+
+  test('should return false for invalid position', () => {
+    expect(chessboard.isValidPosition(0, 'A')).toBe(false);
+    expect(chessboard.isValidPosition(8, 'I')).toBe(false);
+  });
+
+  test('should return true for valid piece type', () => {
+    expect(chessboard.isValidPieceType('Pawn')).toBe(true);
+    expect(chessboard.isValidPieceType('Queen')).toBe(true);
+  });
+
+  test('should return false for invalid piece type', () => {
+    expect(chessboard.isValidPieceType('Kingg')).toBe(false);
+    expect(chessboard.isValidPieceType('random')).toBe(false);
+  });
 });
