@@ -1,4 +1,4 @@
-class Chessboard {
+export default class Chessboard {
   /**
   * Display the initial state of the chessboard.
   * Rows are labeled from 1 to 8 and columns from A to H.
