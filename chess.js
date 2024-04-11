@@ -58,6 +58,33 @@ class Chessboard {
       return possibleMoves;
     }
 
+    getQueenPossibleMoves(row, column) {
+      const possibleMoves = [];
+      const directions = [-1, 0, 1];
+
+      // Iterate over each possible row offset (-1, 0, 1)
+      directions.forEach(rowOffset => {
+        // Iterate over each possible column offset (-1, 0, 1)
+        directions.forEach(colOffset => {
+          // Skip the current position (0, 0)
+          if (!(rowOffset === 0 && colOffset === 0)) {
+            let newRow = row + rowOffset;
+            let newColumn = String.fromCharCode(column.charCodeAt(0) + colOffset);
+
+            // Move in the current direction until we reach the edge of the board
+            while (newRow >= 1 && newRow <= 8 && newColumn >= 'A' && newColumn <= 'H') {
+                // Add the new position to the possibleMoves array
+                possibleMoves.push(`${newColumn}${newRow}`);
+                newRow += rowOffset; // Move to the next row in the same direction
+                newColumn = String.fromCharCode(newColumn.charCodeAt(0) + colOffset); // Move to the next column in the same direction
+            }
+          }
+        });
+      });
+
+      return possibleMoves;
+    }
+
     getPossibleMoves(pieceType, position) {
         const column = position[0];
         const row = parseInt(position[1]);
@@ -69,6 +96,9 @@ class Chessboard {
             break;
           case "King":
             possibleMoves = this.getKingPossibleMoves(row, column);
+            break;
+          case "Queen":
+            possibleMoves = this.getQueenPossibleMoves(row, column);
             break;
           default:
             console.log("Invalid piece");
@@ -86,3 +116,6 @@ console.log('pawnPossibleMoves ', pawnPossibleMoves);
 
 const kingPossibleMoves = chessboard.getPossibleMoves('King', 'D5');
 console.log('kingPossibleMoves ', kingPossibleMoves);
+
+const queenPossibleMoves = chessboard.getPossibleMoves('Queen', 'E4');
+console.log('queenPossibleMoves ', queenPossibleMoves);
