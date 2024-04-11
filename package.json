@@ -5,6 +5,7 @@
   "main": "chess.js",
   "type": "module",
   "scripts": {
+    "serve": "node ./src/chessboardApp.js",
     "test:unit": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "author": "",

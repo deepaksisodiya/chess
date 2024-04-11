@@ -79,7 +79,6 @@ export default class Chessboard {
           // Calculate new row and column positions
           const newRow = row + rowOffset;
           const newColumn = String.fromCharCode(column.charCodeAt(0) + colOffset);
-          console.log('newColumn ', newColumn);
           
           // Check if the new position is within the chessboard bounds
           if (newRow >= 1 && newRow <= 8 && newColumn >= 'A' && newColumn <= 'H') {
