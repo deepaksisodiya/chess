@@ -164,18 +164,3 @@ export default class Chessboard {
     return possibleMoves;
   }
 }
-
-const chessboard = new Chessboard();
-chessboard.displayBoard();
-
-const pawnPossibleMoves = chessboard.getPossibleMoves('Pawn', 'G1');
-console.log('pawnPossibleMoves ', pawnPossibleMoves);
-
-const kingPossibleMoves = chessboard.getPossibleMoves('King', 'D5');
-console.log('kingPossibleMoves ', kingPossibleMoves);
-
-const queenPossibleMoves = chessboard.getPossibleMoves('Queen', 'E4');
-console.log('queenPossibleMoves ', queenPossibleMoves);
-
-console.log(chessboard.getPossibleMoves('randomType', 'E4'));
-console.log(chessboard.getPossibleMoves('King', 'H9'));
