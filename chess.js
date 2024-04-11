@@ -11,7 +11,34 @@ class Chessboard {
           console.log(row);
         }
     }
+
+    getPawnPossibleMoves(row, column) {
+      const possibleMoves = [];
+      if (row < 8) {
+        const newRow = row + 1;
+        possibleMoves.push(`${column}${newRow}`);
+      }
+      return possibleMoves;
+    }
+
+    getPossibleMoves(pieceType, position) {
+        const column = position[0];
+        const row = parseInt(position[1]);
+        let possibleMoves;
+
+        switch (pieceType) {
+          case "Pawn":
+            possibleMoves = this.getPawnPossibleMoves(row, column);
+            break;
+          default:
+            console.log("Invalid piece");
+        }
+
+        return possibleMoves;
+    }
 }
 
 const chessboard = new Chessboard();
 chessboard.displayBoard();
+const possibleMoves = chessboard.getPossibleMoves('Pawn', 'G1');
+console.log('possibleMoves ', possibleMoves);
